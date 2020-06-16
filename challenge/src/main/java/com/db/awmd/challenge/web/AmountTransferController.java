@@ -18,21 +18,16 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 @RequestMapping("/v1/accounts")
 @Slf4j
-public class TransferController {
+public class AmountTransferController {
 
 	private final TransferService transactionService;
 
 	@Autowired
-	public TransferController(TransferService transactionService) {
+	public AmountTransferController(TransferService transactionService) {
 		this.transactionService = transactionService;
 	}
 
-	/**
-	 * @param accountFromId id of withdrawn account
-	 * @param accountToId id of credit account
-	 * @param amount transfer amount
-	 * @return
-	 */
+	
 	@PostMapping(path = "/transfer")
 	public ResponseEntity<Object> transferMoney(
 			@RequestParam(value = "accountFrom", required = true) String accountFromId,
